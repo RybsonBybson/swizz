@@ -6,18 +6,29 @@ import ToolLink from './ToolLink'
 
 
 function Menu() {
-  const yt = ToolLink({ name: "Download from YouTube", color: "#ec2f2e", Icon: YoutubeLogoIcon, href: "YotubeDownloader" })
-  const convert = ToolLink({ name: "File Conversion", color: "#f98f1b", Icon: FileIcon, href: "FileConversion" })
-  const transcryption = ToolLink({ name: "Audio Transcryption", color: "#feb61a", Icon: SubtitlesIcon, href: "Transcryption" })
+  const toollinks = [
+    { name: "Download from YouTube", color: "#ec2f2e", Icon: YoutubeLogoIcon, Href: "YoutubeDownloader" },
+    { name: "File Conversion", color: "#f98f1b", Icon: FileIcon, Href: "FileConversion" },
+    { name: "Audio Transcryption", color: "#feb61a", Icon: SubtitlesIcon, Href: "Transcryption" },
+  ];
 
+
+  const amount = toollinks.length;
   return (
     <>
       <div className="menu">
         <div className='logo'><img src={reactLogo} /></div>
+        <div className="info"><p>Tools available: {amount}</p></div>
         <div className='tools'>
-          {yt}
-          {convert}
-          {transcryption}
+          {toollinks.map((tool, index) => (
+            <ToolLink
+              key={index}
+              name={tool.name}
+              color={tool.color}
+              Icon={tool.Icon}
+              Href={tool.Href}
+            />
+          ))}
         </div>
       </div>
     </>

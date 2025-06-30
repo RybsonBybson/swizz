@@ -1,5 +1,6 @@
 body {
   --BACKGROUNDCOLOR: #242424;
+  --ACCENT: #444;
   --FONTCOLOR: #ddd;
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   background-color: var(--BACKGROUNDCOLOR);
