@@ -1,0 +1,6 @@
+body {
+  --BACKGROUNDCOLOR: #242424;
+  --FONTCOLOR: #ddd;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background-color: var(--BACKGROUNDCOLOR);
+}

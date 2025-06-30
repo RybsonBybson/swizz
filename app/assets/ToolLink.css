@@ -1,0 +1,38 @@
+.toollink {
+    background-color: var(--COLOR);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.3vh;
+    width: 32%;
+    aspect-ratio: 1.2;
+    text-decoration: none;
+    border-radius: 0.9vh;
+    cursor: pointer;
+    color: var(--FONTCOLOR);
+}
+
+svg {
+    font-size: 8vh;
+    transition: font-size 0.3s;
+}
+
+p {
+    font-size: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transform: translateY(0);
+    transition: transform 0.3s;
+}
+
+
+.toollink:hover>svg {
+    font-size: 9vh;
+}
+
+.toollink:hover>p {
+    transform: translateY(2vh);
+}
