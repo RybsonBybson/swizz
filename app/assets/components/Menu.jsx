@@ -1,13 +1,12 @@
 import reactLogo from '/react.svg'
-import './Menu.css'
+import '../css/Menu.css'
 import { FileIcon, SubtitlesIcon, YoutubeLogoIcon } from '@phosphor-icons/react'
 import ToolLink from './ToolLink'
-
-
+import YoutubeDownloader from '../pages/YoutubeDownloader';
 
 function Menu() {
   const toollinks = [
-    { name: "Download from YouTube", color: "#ec2f2e", Icon: YoutubeLogoIcon, Href: "YoutubeDownloader" },
+    { name: "Download from YouTube", color: "#ec2f2e", Icon: YoutubeLogoIcon, Href: YoutubeDownloader },
     { name: "File Conversion", color: "#f98f1b", Icon: FileIcon, Href: "FileConversion" },
     { name: "Audio Transcryption", color: "#feb61a", Icon: SubtitlesIcon, Href: "Transcryption" },
   ];

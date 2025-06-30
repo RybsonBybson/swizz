@@ -11,6 +11,11 @@
     border-radius: 0.9vh;
     cursor: pointer;
     color: var(--FONTCOLOR);
+    transition: transform 0.25s;
+}
+
+.toollink:active {
+    transform: scale(0.95);
 }
 
 svg {

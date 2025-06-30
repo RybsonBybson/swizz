@@ -1,0 +1,6 @@
+{
+    "python": {
+        "host": "localhost",
+        "port": 5000
+    }
+}

@@ -1,0 +1,17 @@
+body {
+  --BACKGROUNDCOLOR: #242424;
+  --ACCENT: #444;
+  --FONTCOLOR: #eee;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background-color: var(--BACKGROUNDCOLOR);
+  user-select: none;
+}
+
+
+input,
+textarea {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}

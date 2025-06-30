@@ -1,0 +1,25 @@
+.home-btn {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    width: 5vh;
+    aspect-ratio: 1.0;
+    bottom: 1.2%;
+    left: 1.2%;
+    padding: 1vh;
+    transition: transform 0.25s;
+    background-color: var(--COLOR);
+    cursor: pointer;
+}
+
+
+.home-btn:active {
+    transform: scale(0.95);
+}
+
+.home-btn>svg {
+    height: 75%;
+    color: var(--FONTCOLOR);
+}
