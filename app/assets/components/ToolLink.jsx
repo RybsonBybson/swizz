@@ -1,17 +1,23 @@
 import Banner from './Banner';
 import { root } from './main';
-import '../css/ToolLink.css'
+import '../css/menu.css'
 import Home from './Home';
+import { Toaster } from 'react-hot-toast';
+import Settings from './Settings';
 
 
-function ToolOpen(Href, color, Icon) {
+async function ToolOpen(Href, color, Icon) {
     root.render(
         <>
+            <Toaster position='top-right' />
             <Home />
+            <Settings />
             <Banner color={color} Icon={Icon} />
             <Href />
         </>
     );
+
+    await Href.base();
 }
 
 

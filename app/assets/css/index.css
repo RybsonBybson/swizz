@@ -2,16 +2,142 @@ body {
   --BACKGROUNDCOLOR: #242424;
   --ACCENT: #444;
   --FONTCOLOR: #eee;
+  --LACCENT: #777;
+  --COLOR: var(--LACCENT);
+
+  --TRANTIME: 0.25s;
+  --TRANSCALE: 0.95;
+  --LTRANSCALE: 0.98;
+
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   background-color: var(--BACKGROUNDCOLOR);
   user-select: none;
+  color: var(--FONTCOLOR);
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
 }
 
+::-webkit-scrollbar {}
 
 input,
 textarea {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+input[type="text"] {
   -webkit-user-select: text;
   -moz-user-select: text;
   -ms-user-select: text;
   user-select: text;
+}
+
+
+input,
+button,
+textarea,
+select,
+option {
+  transition: all var(--TRANTIME);
+}
+
+textarea {
+  resize: none;
+}
+
+input:hover,
+input:focus,
+button:hover,
+button:focus,
+textarea:hover,
+text:focus,
+select:hover,
+select:focus {
+  outline: none;
+  transform: scale(var(--LTRANSCALE));
+}
+
+input:active,
+button:active,
+textarea:active,
+select:active {
+  transform: scale(var(--TRANSCALE));
+}
+
+textarea[readonly] {
+  user-select: none;
+}
+
+
+input[type='text'],
+textarea {
+  width: 35vh;
+  font-size: 2vh;
+  border: none;
+  padding: 1.5vh 2vh;
+  border-radius: 0.5vh;
+  outline: none;
+}
+
+textarea {
+  background-color: white;
+  width: 90%;
+  aspect-ratio: 2;
+  overflow-y: auto;
+}
+
+input[type='file'] {
+  border: none;
+  height: 5.5vh;
+  width: 40vh;
+  background-color: var(--ACCENT);
+  border-radius: 0.5vh;
+  cursor: pointer;
+  font-size: 2vh;
+}
+
+input[type='file']::file-selector-button {
+  height: 100%;
+  border: none;
+  background-color: var(--COLOR);
+  color: var(--FONTCOLOR);
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+
+button>svg {
+  font-size: 5vh;
+}
+
+button,
+select,
+option {
+  align-items: center;
+  background-color: var(--ACCENT);
+  border: none;
+  border-radius: 0.5vh;
+  box-shadow: #00000005 0 1px 3px 0;
+  cursor: pointer;
+  display: flex;
+  font-weight: 600;
+  justify-content: center;
+  transition: all var(--TRANTIME);
+  user-select: none;
+  font-size: 2vh;
+  color: var(--FONTCOLOR);
+  padding: 1.5vh 2vh;
+}
+
+
+button:hover,
+button:focus,
+button:active,
+select:hover,
+select:focus,
+select:active {
+  background-color: var(--COLOR);
 }

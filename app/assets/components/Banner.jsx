@@ -1,4 +1,4 @@
-import '../css/Banner.css'
+import '../css/pages.css'
 
 function Banner({ color, Icon }) {
     document.body.style.setProperty("--COLOR", color);

@@ -1,28 +1,61 @@
-import { useState } from "react";
 import "../css/pages.css";
-import { ArrowSquareRightIcon } from "@phosphor-icons/react/dist/ssr";
+import { fetchpython, pickPath } from "../../js/tools";
+import toast from "react-hot-toast";
 
 function YoutubeDownloader() {
-    const [link, setLink] = useState("");
+    const base = async () => {
+        return;
+    }
 
     const handleDownload = async () => {
-        if (!link) return alert("Enter video url!");
-        window.electronAPI.downloadYoutube(link)
+        const link = document.querySelector("#videoURL")?.value || null;
+
+        if (!link) {
+            toast.error("Video URL not provided");
+            return;
+        }
+
+        const { canceled, filePath } = await pickPath({
+            title: "Save video...",
+            defaultPath: "video.mp4",
+            filters: [
+                { name: "MP4", extensions: ["mp4"] }
+            ]
+        });
+
+        if (canceled || !filePath) return;
+
+        const t = toast.loading("Downloading your video...");
+        const response = await fetchpython("/download_from_yt", { "url": link, "output_path": filePath });
+        const data = await response.json();
+
+        if (response.ok) {
+            toast.success(`Video downloaded at ${data.path}`, { id: t });
+        }
+        else {
+            toast.error(data.error, { id: t });
+        }
+
     };
+
+
 
     return (
         <div className="base">
             <div className="row">
                 <input
+                    id="videoURL"
                     type="text"
-                    value={link}
-                    onChange={(e) => setLink(e.target.value)}
                     placeholder="Enter YouTube video URL..."
                 />
                 <button onClick={handleDownload}>Download</button>
             </div>
         </div>
     );
+}
+
+YoutubeDownloader.base = async () => {
+    return;
 }
 
 export default YoutubeDownloader;

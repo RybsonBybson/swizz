@@ -1,5 +1,5 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
-contextBridge.exposeInMainWorld("electronAPI", {
-  downloadYoutube: (url) => ipcRenderer.invoke("download-youtube", url),
+contextBridge.exposeInMainWorld("back", {
+  pickPath: (data) => ipcRenderer.invoke("pick-path", data),
 });

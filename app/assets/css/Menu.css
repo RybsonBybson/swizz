@@ -15,9 +15,16 @@
   align-items: center;
 }
 
+.logo>img {
+  transition: transform var(--TRANTIME);
+}
+
+.logo>img:hover {
+  transform: scale(var(--LTRANSCALE));
+}
+
 img {
-  width: 100%;
-  aspect-ratio: 1;
+  height: 20vh;
 }
 
 .tools {
@@ -25,7 +32,7 @@ img {
   display: flex;
   flex-wrap: wrap;
   padding: 3%;
-  gap: 2%;
+  gap: 2vh 2%;
 }
 
 .info {
@@ -34,4 +41,62 @@ img {
   color: var(--FONTCOLOR);
   width: 90%;
   border-bottom: solid 0.1vh var(--ACCENT);
+  transition: all var(--TRANTIME);
+}
+
+.info:hover {
+  letter-spacing: 0.1vh;
+}
+
+
+
+
+.toollink {
+  background-color: var(--COLOR);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.3vh;
+  width: 32%;
+  aspect-ratio: 1.2;
+  text-decoration: none;
+  border-radius: 0.9vh;
+  cursor: pointer;
+  color: var(--FONTCOLOR);
+  transition: transform var(--TRANTIME);
+}
+
+
+
+svg {
+  font-size: 8vh;
+  transition: font-size 0.3s;
+}
+
+p {
+  font-size: 2vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 0.3s;
+}
+
+.toollink:hover {
+  transform: scale(var(--LTRANSCALE));
+}
+
+.toollink:active {
+  transform: scale(var(--TRANSCALE));
+}
+
+
+.toollink:hover>svg {
+  font-size: 9vh;
+}
+
+.toollink:hover>p {
+  transform: translateY(2vh);
 }

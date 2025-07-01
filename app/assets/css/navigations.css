@@ -1,0 +1,69 @@
+.home-btn,
+.settings-btn {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    width: 6vh;
+    aspect-ratio: 1.0;
+    padding: 1vh;
+    transition: all var(--TRANTIME);
+    background-color: var(--ACCENT);
+    cursor: pointer;
+}
+
+.home-btn {
+    bottom: 1.2%;
+    left: 1.2%;
+}
+
+.settings {
+    position: fixed;
+    right: 1.2%;
+    bottom: 1.2%;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+
+
+.settings-btn:hover>svg,
+.settings-btn:focus>svg {
+    transform: rotate(45deg);
+}
+
+.settings-btn:active>svg,
+.settings-btn.active>svg {
+    transform: rotate(90deg);
+}
+
+.home-btn:active,
+.settings-btn:active,
+.settings-btn.active {
+    background-color: var(--COLOR);
+}
+
+.home-btn>svg,
+.settings-btn>svg {
+    height: 75%;
+    transition: transform var(--TRANTIME);
+}
+
+
+.settings-panel {
+    display: none;
+    position: relative;
+    bottom: 7vh;
+    padding: 1.5vh 2vh;
+    border-radius: 0.5vh;
+    background-color: var(--ACCENT);
+    font-size: 2vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.settings-panel.active {
+    display: flex;
+}

@@ -2,5 +2,9 @@
     "python": {
         "host": "localhost",
         "port": 5000
+    },
+    "settings": {
+        "showAds": false,
+        "enableAnimations": false
     }
 }
