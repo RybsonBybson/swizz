@@ -8,16 +8,16 @@ import whisper
 import base64
 import tempfile
 
-
-with open(os.path.join(__CONFIGS__, "config.json")) as file:
-    config = loads(file.read())
-
-host = config['python']['host']
-port = config['python']['port']
+CONFIGPATH = os.path.join(__CONFIGS__, "config.json")
 
 app = Flask(__name__)
 CORS(app)
 
+
+def get_config():
+    with open(CONFIGPATH, 'r') as file:
+        config = loads(file.read())
+    return config
 
 @app.route('/download_from_yt', methods=['POST'])
 def download_from_yt():
@@ -45,7 +45,7 @@ def available_models():
 @app.route("/transcript", methods=["POST"])
 def transcript():
     data = request.get_json()
-    audio_b64 = data.get('file')  # base64 string
+    audio_b64 = data.get('file')
     model_name = data.get('model')
 
     if not audio_b64 or not model_name:
@@ -73,6 +73,22 @@ def transcript():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+@app.route("/save_config", methods=['POST'])
+def save_config():
+    data = request.get_json()
+    config = data.get('config')
+
+    try:
+        with open(CONFIGPATH, 'w') as file:
+            file.write(dumps(config))
+
+        return jsonify({"status": "success"})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
 # ---------------------------
 if __name__ == "__main__":
+    host = get_config()['python']['host']
+    port = get_config()['python']['port']
     app.run(host, port, debug=True)

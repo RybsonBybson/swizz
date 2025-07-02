@@ -5,12 +5,12 @@ import ToolLink from './ToolLink'
 import YoutubeDownloader from '../pages/YoutubeDownloader';
 import Transcryption from '../pages/Transcryption';
 import Settings from './Settings';
+import KoFi from './Ko-Fi';
 
 function Menu() {
   const toollinks = [
     { name: "Download from YouTube", color: "#ec2f2e", Icon: YoutubeLogoIcon, Href: YoutubeDownloader },
-    { name: "File Conversion", color: "#f98f1b", Icon: FileIcon, Href: "FileConversion" },
-    { name: "Audio Transcryption", color: "#feb61a", Icon: SubtitlesIcon, Href: Transcryption },
+    { name: "Audio Transcryption", color: "#f98f1b", Icon: SubtitlesIcon, Href: Transcryption },
   ];
 
 
@@ -18,6 +18,7 @@ function Menu() {
   return (
     <>
       <Settings />
+      <KoFi />
       <div className="menu">
         <div className='logo'><img src={swizzLogo} /></div>
         <div className="info"><p>Tools available: {amount}</p></div>

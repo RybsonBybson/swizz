@@ -54,8 +54,5 @@ function YoutubeDownloader() {
     );
 }
 
-YoutubeDownloader.base = async () => {
-    return;
-}
 
 export default YoutubeDownloader;

@@ -4,7 +4,6 @@ body {
   --FONTCOLOR: #eee;
   --LACCENT: #777;
   --COLOR: var(--LACCENT);
-
   --TRANTIME: 0.25s;
   --TRANSCALE: 0.95;
   --LTRANSCALE: 0.98;
@@ -38,7 +37,8 @@ input,
 button,
 textarea,
 select,
-option {
+option,
+a {
   transition: all var(--TRANTIME);
 }
 
@@ -53,7 +53,9 @@ button:focus,
 textarea:hover,
 text:focus,
 select:hover,
-select:focus {
+select:focus,
+a:hover,
+a:focus {
   outline: none;
   transform: scale(var(--LTRANSCALE));
 }
@@ -61,7 +63,8 @@ select:focus {
 input:active,
 button:active,
 textarea:active,
-select:active {
+select:active,
+a:active {
   transform: scale(var(--TRANSCALE));
 }
 

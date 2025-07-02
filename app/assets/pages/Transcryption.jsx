@@ -1,35 +1,40 @@
-import "../css/pages.css";
 import { fetchpython, toBase64 } from "../../js/tools";
 import toast from "react-hot-toast";
-
-const fetchModels = async () => {
-    try {
-        const response = await fetchpython("/available_models");
-        const data = await response.json();
-        const select = document.querySelector("#model");
-        data.models.forEach(model => {
-            const option = document.createElement('option');
-            option.textContent = model;
-            option.value = model;
-            select.appendChild(option);
-        });
-
-        toast.success("Loaded all models");
-
-    } catch (error) {
-        toast.error("Failed to load models");
-    }
-};
+import { useEffect } from "react";
+import "../css/pages.css";
 
 function Transcryption() {
+
+    useEffect(() => {
+        const fetchModels = async () => {
+            try {
+                const response = await fetchpython("/available_models");
+                const data = await response.json();
+                const select = document.querySelector("#model");
+                data.models.forEach(model => {
+                    const option = document.createElement("option");
+                    option.value = model;
+                    option.textContent = model;
+                    select.appendChild(option);
+                });
+                toast.success("Loaded all models");
+            } catch (error) {
+                toast.error("Failed to load models");
+            }
+        };
+        fetchModels();
+    }, []);
+
     const handleTranscript = async () => {
-        const file = document.querySelector("#file").files[0] || null;
+        const fileInput = document.querySelector("#file");
+        const file = fileInput?.files?.[0];
         if (!file) {
             toast.error("Audio file not provided");
             return;
         }
 
-        const selectedModel = document.querySelector("#model").value;
+        const select = document.querySelector("#model");
+        const selectedModel = select.value;
         if (!selectedModel) {
             toast.error("Choose a model");
             return;
@@ -42,7 +47,6 @@ function Transcryption() {
                 file: base64Audio,
                 model: selectedModel
             });
-
             const data = await response.json();
 
             if (response.ok) {
@@ -70,16 +74,14 @@ function Transcryption() {
         <div className="base">
             <div className="row">
                 <input type="file" accept="audio/*,video/*" id="file" />
-                <select id="model" defaultValue=""><option value="" disabled>Choose model</option></select>
+                <select id="model" defaultValue="">
+                    <option value="" disabled>Choose model</option>
+                </select>
                 <button onClick={handleTranscript}>Transcript</button>
             </div>
             <textarea readOnly id="transcription" placeholder="Here will be your transcripted text" onClick={copyTranscription} />
         </div>
     );
-}
-
-Transcryption.base = async () => {
-    await fetchModels();
 }
 
 export default Transcryption;

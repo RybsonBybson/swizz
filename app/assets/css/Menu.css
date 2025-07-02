@@ -52,6 +52,8 @@ img {
 
 
 .toollink {
+  --ANIMTRANTIME: 2s;
+
   background-color: var(--COLOR);
   display: flex;
   justify-content: center;
@@ -84,19 +86,19 @@ p {
   transition: transform 0.3s;
 }
 
-.toollink:hover {
+.toollink:not(.anim):hover {
   transform: scale(var(--LTRANSCALE));
 }
 
-.toollink:active {
+.toollink:not(.anim):active {
   transform: scale(var(--TRANSCALE));
 }
 
 
-.toollink:hover>svg {
+.toollink:not(.anim):hover>svg {
   font-size: 9vh;
 }
 
-.toollink:hover>p {
+.toollink:not(.anim):hover>p {
   transform: translateY(2vh);
 }

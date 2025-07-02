@@ -62,8 +62,35 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    gap: 1vh;
 }
 
 .settings-panel.active {
     display: flex;
+}
+
+.setting-option {
+    width: 100%;
+}
+
+.adbox {
+    position: fixed;
+    width: 50%;
+    height: 6vh;
+    bottom: 1.2%;
+
+}
+
+.adrow {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.adbox * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
