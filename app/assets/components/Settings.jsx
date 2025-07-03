@@ -64,17 +64,23 @@ function Settings() {
         });
 
         const t = toast.loading("Saving settings...");
-        const response = await fetchpython("/save_config", {
-            config: config
-        });
-        const data = await response.json();
+        try {
+            const response = await fetchpython("/save_config", {
+                config: config
+            });
+            const data = await response.json();
 
-        if (response.ok) {
-            toast.success("Saved settings!", { id: t });
+            if (response.ok) {
+                toast.success("Saved settings!", { id: t });
+            }
+            else {
+                toast.error(data.error, { id: t });
+            }
         }
-        else {
-            toast.error(data.error, { id: t });
+        catch (e) {
+            toast.error(e, { id: t });
         }
+
 
     }
 

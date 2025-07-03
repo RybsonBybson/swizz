@@ -1,8 +1,33 @@
 {
-  "name": "app",
+  "name": "swizz",
+  "main": "js/main.js",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "author": "Ryba",
+  "build": {
+    "appId": "com.swizz.app",
+    "productName": "Swizz",
+    "files": [
+      "dist/**/*",
+      "js/**/*",
+      "python/**/*",
+      "requirements.txt"
+    ],
+    "extraResources": [
+      {
+        "from": "python",
+        "to": "python"
+      }
+    ],
+    "directories": {
+      "buildResources": "public",
+      "output": "build"
+    },
+    "win": {
+      "target": "nsis"
+    }
+  },
   "scripts": {
     "backend": "python python/main.py",
     "dev": "vite",
@@ -10,7 +35,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "electron": "electron js/main.js",
-    "start": "concurrently \"npm run backend\" \"npm run dev\" \"npm run electron\""
+    "start": "concurrently \"npm run backend\" \"npm run dev\" \"npm run electron\"",
+    "build:app": "npm run build && electron-builder"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
@@ -27,6 +53,7 @@
     "@vitejs/plugin-react": "^4.5.2",
     "concurrently": "^9.2.0",
     "electron": "^37.1.0",
+    "electron-builder": "^26.0.12",
     "eslint": "^9.29.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",

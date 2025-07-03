@@ -7,6 +7,7 @@ function Transcryption() {
 
     useEffect(() => {
         const fetchModels = async () => {
+            const t = toast.loading("Loading transcryption models");
             try {
                 const response = await fetchpython("/available_models");
                 const data = await response.json();
@@ -17,9 +18,9 @@ function Transcryption() {
                     option.textContent = model;
                     select.appendChild(option);
                 });
-                toast.success("Loaded all models");
+                toast.success("Loaded all models", { id: t });
             } catch (error) {
-                toast.error("Failed to load models");
+                toast.error("Failed to load models", { id: t });
             }
         };
         fetchModels();

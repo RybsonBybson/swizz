@@ -3,6 +3,9 @@ import { app, BrowserWindow, Menu } from 'electron';
 import * as path from 'path'
 import { fileURLToPath } from 'url';
 import './back.js';
+import { spawn } from 'child_process';
+
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -20,7 +23,6 @@ function startPythonBackend() {
 }
 
 
-
 function createWindow() {
   const win = new BrowserWindow({
     width: 800,
@@ -35,7 +37,7 @@ function createWindow() {
 
 
   if(isDev) win.loadURL('http://localhost:5173');                   // for testing purposes!!!
-
+  
   else {                                                            // for build purposes!!!
     win.loadFile(path.join(__dirname, '../dist/index.html')); 
     pythonBackend = startPythonBackend();
@@ -52,8 +54,11 @@ app.whenReady().then(() => {
   });
 });
 
-
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();
 });
+
+app.on('quit', () => {
+  if(pythonBackend) pythonBackend.kill();
+})
 
