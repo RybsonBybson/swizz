@@ -12,12 +12,17 @@
       "dist/**/*",
       "js/**/*",
       "python/**/*",
+      "configs/*",
       "requirements.txt"
     ],
     "extraResources": [
       {
         "from": "python",
         "to": "python"
+      },
+      {
+        "from": "configs",
+        "to": "configs"
       }
     ],
     "directories": {
