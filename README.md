@@ -4,6 +4,9 @@
 
 **Swizz** is a compact desktop app designed to bring together a variety of popular online tools — so you don’t have to keep jumping between different websites and apps. Everything you need, bundled in one convenient place.
 
+<img alt="image" src="https://github.com/user-attachments/assets/aa028ed9-cc85-4569-8c05-3490fa310b66" />
+
+
 ### 🧰 What does Swizz offer?
 
 - YouTube video downloader  
