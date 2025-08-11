@@ -3,9 +3,6 @@ import { fetchpython, pickPath } from "../../js/tools";
 import toast from "react-hot-toast";
 
 function YoutubeDownloader() {
-    const base = async () => {
-        return;
-    }
 
     const handleDownload = async () => {
         const link = document.querySelector("#videoURL")?.value || null;
@@ -19,7 +16,8 @@ function YoutubeDownloader() {
             title: "Save video...",
             defaultPath: "video.mp4",
             filters: [
-                { name: "MP4", extensions: ["mp4"] }
+                { name: "MP4", extensions: ["mp4"] },
+                { name: "MP3", extensions: ["mp3"] }
             ]
         });
 

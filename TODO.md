@@ -1,0 +1,2 @@
+- Add audio files download support to YoutubeDownloader
+- Add video browser to YoutubeDownloader
